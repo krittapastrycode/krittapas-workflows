@@ -64,6 +64,7 @@ if (existsSync(join(root, "agents"))) {
 
 // Skills
 requireFrontmatter("skills/second-brain/SKILL.md", ["name", "description"]);
+requireFrontmatter("skills/level-up/SKILL.md", ["name", "description"]);
 
 // Docs
 requireFile("README.md");
