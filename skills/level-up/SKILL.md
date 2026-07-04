@@ -30,7 +30,7 @@ Explicitly NOT mistakes:
 
 1. **Identify the actual mistake.** Not the symptom — the decision that caused it. Ask: what did I believe that was wrong, and what evidence was available at the time that I skipped? If the honest answer is "nothing — the information wasn't available", there is no lesson; say so and stop.
 2. **Check it generalizes.** Will this same wrong turn plausibly recur in a different task? One-off trivia (a typo, a flaky network call) is not a lesson. Stop if it doesn't generalize.
-3. **Check for an existing lesson.** Read the vault `INDEX.md` (vault location and rules: see the `second-brain` skill in this plugin). If a lesson covering this pattern exists, sharpen that file instead of writing a duplicate.
+3. **Check for an existing lesson.** Read `INDEX.md` in the vault at `C:\Users\capto\second-brain` (full rules: the `second-brain` skill in this plugin). If a lesson covering this pattern exists, sharpen that file instead of writing a duplicate.
 4. **Write one lesson file** to `concepts/` in the vault, following the vault's own rules (one lesson per file, one-line summary on top, `[[link]]` to related pages, source note). Include:
    - The wrong belief and the moment it was formed
    - What evidence would have corrected it, and how cheap that evidence was

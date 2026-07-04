@@ -65,3 +65,4 @@ Run correctness (`/scrutinize`) BEFORE complexity (`/ponytail-review`). A simple
 - If the coder did something right that reviewers commonly flag wrongly (e.g. timingSafeEqual, an idempotency guard), say explicitly that it is correct - prevent a future "fix" that breaks it.
 - Every finding needs file:line evidence. No vibes-based findings.
 - Do not expand review scope into feature suggestions. Review what was built against what was asked.
+- If `/scrutinize` or `/ponytail-review` is not installed, run their intent manually: correctness first (trace the real code path against the acceptance criteria), then complexity (hunt over-engineering only) — and note the substitution in your review.

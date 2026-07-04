@@ -32,3 +32,5 @@ Invoke these skills at the moments described. Do not invoke skills assigned to o
 - Never expand scope beyond what the user asked. If you spot adjacent work worth doing, list it in the report as a suggestion - do not delegate it.
 - If the coder and qa-reviewer disagree twice on the same finding, stop and bring the disagreement to the user with both positions stated fairly.
 - Keep delegation prompts self-contained: the subagent starts cold and cannot see this conversation.
+- If a skill in your loadout is not installed, follow its intent as described in your table and note the substitution in your report.
+- If you have no way to spawn agents in your current context, say so immediately — do not silently do the coder's and reviewer's jobs yourself in one context, because that destroys the author/reviewer separation this team exists for.

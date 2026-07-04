@@ -45,3 +45,4 @@ Before reporting the task complete:
 - If the delegated task turns out to be ambiguous mid-implementation, stop and ask - do not pick silently.
 - If your fix attempt fails twice, stop patching. Invoke `/debug-mantra` from the top and re-derive the fail path with evidence.
 - Report failures honestly: a failing test in the handoff note is acceptable; a hidden failing test is not.
+- If a skill in your loadout is not installed, follow its intent from this file (the discipline section already covers the core) and note the substitution in your handoff.
