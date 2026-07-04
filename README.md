@@ -10,7 +10,10 @@ A personal agent team for Claude Code: three roles with curated skill loadouts, 
 | `coder` | sonnet | Implements with Karpathy + ponytail discipline baked in, self-checks before handoff | `/tdd`, `/debug-mantra`, `/post-mortem`, `/ponytail-debt` |
 | `qa-reviewer` | sonnet | Fresh-context verification against the original acceptance criteria; never reviews its own work | `/scrutinize`, `/ponytail-review` |
 
-Plus one skill: **`second-brain`** — read/write the persistent Obsidian vault (`~/second-brain`) so durable knowledge outlives the session.
+Plus two skills:
+
+- **`second-brain`** — read/write the persistent Obsidian vault (`~/second-brain`) so durable knowledge outlives the session.
+- **`level-up`** — after a caught mistake (not every prompt), distill the pattern into one lesson file in the vault. Lessons are recall material, never a growing pre-flight checklist — mistakes stay cheap.
 
 ## Design rules
 
