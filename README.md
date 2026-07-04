@@ -31,6 +31,32 @@ claude plugin marketplace add krittapastrycode/krittapas-workflows
 claude plugin install krittapas-workflows@krittapas-workflows
 ```
 
+**Restart the Claude Code session after install or update** — plugins register at session start, not mid-session.
+
+## Usage
+
+**Skills** — namespaced slash commands, invoke directly:
+
+```
+/krittapas-workflows:second-brain
+/krittapas-workflows:level-up
+/krittapas-workflows:rate-it
+/krittapas-workflows:fav-skills                 (show the list)
+/krittapas-workflows:fav-skills add <skill> [category]
+/krittapas-workflows:fav-skills remove <skill>
+```
+
+**Agents** — not slash commands. Either ask for one by name ("use the orchestrator agent to plan and delegate: `<task>`"), or invoke via the Agent/Task tool with `subagent_type: krittapas-workflows:orchestrator` (also `:coder`, `:qa-reviewer`). Run `/agents` to confirm all three show up as available agent types once the plugin is loaded.
+
+**Updating after a change:** bump `version` in `.claude-plugin/plugin.json`, push, then:
+
+```bash
+claude plugin marketplace update krittapas-workflows
+claude plugin update krittapas-workflows@krittapas-workflows
+```
+
+`claude plugin update` alone will report "already at latest" against a stale marketplace clone — run `marketplace update` first.
+
 ## Validate
 
 ```bash
