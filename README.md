@@ -1,0 +1,50 @@
+# krittapas-workflows
+
+A personal agent team for Claude Code: three roles with curated skill loadouts, placed so no two agents burn tokens invoking the same skill on the same work.
+
+## The team
+
+| Agent | Model | Job | Skill loadout |
+|---|---|---|---|
+| `orchestrator` | opus | Clarifies requirements, plans, delegates, arbitrates findings, reports | `/grill-me`, `/to-issues`, `/management-talk`, `/handoff` |
+| `coder` | sonnet | Implements with Karpathy + ponytail discipline baked in, self-checks before handoff | `/tdd`, `/debug-mantra`, `/post-mortem`, `/ponytail-debt` |
+| `qa-reviewer` | sonnet | Fresh-context verification against the original acceptance criteria; never reviews its own work | `/scrutinize`, `/ponytail-review` |
+
+Plus one skill: **`second-brain`** — read/write the persistent Obsidian vault (`~/second-brain`) so durable knowledge outlives the session.
+
+## Design rules
+
+- **Skills are placed per role, not restricted per role.** Any agent *could* invoke any skill; the loadouts exist so the same check doesn't run 4 times on one piece of work. Coder self-checks (`/debug-mantra`, ponytail discipline), then qa-reviewer re-checks with *different* lenses (`/scrutinize`, `/ponytail-review`) in a fresh context.
+- **Authoring and review never share a context.** The qa-reviewer is spawned fresh and never reviews code it wrote — author bias is the whole reason it exists.
+- **Delegation prompts are self-contained.** Subagents start cold; the orchestrator hands them everything they need.
+- **Instructions are long but simple.** Written to be executed by Opus and Sonnet, not admired by humans.
+
+## Install
+
+```bash
+claude plugin marketplace add krittapastrycode/krittapas-workflows
+claude plugin install krittapas-workflows@krittapas-workflows
+```
+
+## Validate
+
+```bash
+node scripts/validate.mjs
+```
+
+Checks the plugin manifest, the fixed 3-agent roster, frontmatter, and required docs. Exits non-zero with a problem list if anything is malformed.
+
+## Third-party skills referenced (not vendored)
+
+Loadouts reference these by name; install them separately:
+
+- [mattpocock/skills](https://github.com/mattpocock/skills) — `grill-me`, `tdd`, `to-issues`, `handoff`
+- [thananon/9arm-skills](https://github.com/thananon/9arm-skills) — `debug-mantra`, `scrutinize`, `post-mortem`, `management-talk`
+- [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) — `ponytail-review`, `ponytail-debt`
+- [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) — coding guidelines (inlined into the coder's discipline section)
+
+If a referenced skill is missing, agents fall back to the inlined discipline rules in their own instruction files — the loadout degrades, it doesn't break.
+
+## License
+
+MIT — see [LICENSE](LICENSE).

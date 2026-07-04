@@ -1,0 +1,14 @@
+{
+  "name": "krittapas-workflows",
+  "owner": {
+    "name": "Krittapas Polmanee",
+    "url": "https://github.com/krittapastrycode"
+  },
+  "plugins": [
+    {
+      "name": "krittapas-workflows",
+      "source": "./",
+      "description": "Agent team (orchestrator / coder / qa-reviewer) with role-scoped skill loadouts, plus a second-brain vault skill."
+    }
+  ]
+}
