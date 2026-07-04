@@ -15,6 +15,17 @@ Mistakes must stay cheap. An agent that fears mistakes never stops validating, a
 - One mistake = at most one lesson. If the mistake doesn't generalize, write nothing.
 - Lessons are recall material, not pre-flight checks. Never convert a lesson into a mandatory step that runs on every task.
 
+## What counts as a mistake (all three must be true)
+
+1. **A wrong belief existed** — you asserted or acted on something factually or procedurally incorrect.
+2. **Evidence was available at the time and was skipped** — the file was readable, the test was runnable, the doc existed.
+3. **It generalizes** — the same wrong turn would plausibly recur in different work.
+
+Explicitly NOT mistakes:
+- **Taste and preference iterations.** The user asking for restyling, rewording, or a different approach because the first version wasn't to their liking is preference discovery, not error — their preference wasn't knowable in advance. Record it as preference data via the `second-brain` skill (an entity/concept page like "prefers X over Y in UI") so the next attempt starts right. Exception: ignoring an already-recorded preference IS a mistake — the evidence existed in the vault and was skipped.
+- **New requirements.** "Actually, also make it do X" is scope change, not error.
+- **Unknowable failures.** Flaky network, an undocumented API quirk, information that genuinely didn't exist yet — no lesson possible, write nothing.
+
 ## When invoked
 
 1. **Identify the actual mistake.** Not the symptom — the decision that caused it. Ask: what did I believe that was wrong, and what evidence was available at the time that I skipped? If the honest answer is "nothing — the information wasn't available", there is no lesson; say so and stop.
