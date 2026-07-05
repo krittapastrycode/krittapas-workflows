@@ -40,16 +40,27 @@ A project that is an actively developed git repo already has its own memory (git
 
 ## Code-graph pages (function-level system maps)
 
-When the user wants a codebase mapped at function/endpoint granularity, use the **code-graph** convention - detailed enough to answer "what does this function do, what's wrong with it, what does it call" without opening the repo, but cheap enough for a future session to read:
+When the user wants a codebase mapped at function/endpoint granularity, build a **folder tree** under `entities/` - detailed enough to answer "what does this function do, what's wrong with it, what does it call" without opening the repo, cheap enough for a future session to read:
 
-1. **One page per module, one `###` section per function/endpoint.** A section IS a node. Never one file per function (that explodes INDEX.md and read costs).
-2. Node format, 1-3 lines each: what it does → `Problem:` lines only if real → connections as `[[page#section]]` wikilinks to other nodes.
-3. A **hub page** (the project's existing `entities/` page) lists the node pages; INDEX.md gets one line per node page, prefixed consistently (e.g. `projectname-be-<module>`).
-4. Only record what the code doesn't say about itself: behavior summaries, cross-module edges, known bugs/ceilings, contract mismatches. No code snippets, no line numbers (they rot fastest).
-5. End every node page with the repo path + read date. The graph is a map, not the territory - re-read the repo when a node smells stale, and update the node when the module changes.
-6. Findings that span the whole system (review verdicts, severity-ranked bug lists, cost analysis) go in ONE dated `concepts/` page linked from the hub, not scattered across nodes.
+```
+entities/<project>/
+├── <project>.md                      # product hub
+└── <repo>/
+    ├── <repo>.md                     # repo hub → module hubs
+    └── <module>/
+        ├── <module>.md               # module hub → function notes
+        └── <module>-<function>.md    # ONE function = ONE note
+```
 
-Example: [[baantdee-backend]] (hub) → [[baantdee-be-payments]] (nodes) → [[baantdee-system-review-2026-07]] (findings).
+1. **One function = one note**, filename module-prefixed (`payments-create-charge.md`) so `[[wikilinks]]` stay unique vault-wide (`create` exists in many modules). Hub note at every level linking down.
+2. A function note is ≤ ~12 lines: first-line summary (route → service.method) → what it does → `Problem:` / `Fixed <date>:` only if real → `[[edges]]` to related notes → source path + read date.
+3. Trivial sibling one-liners MAY share a note (e.g. four mark-read endpoints) - the goal is graph clarity, not ceremony.
+4. Only record what the code doesn't say about itself: behavior, cross-module edges, known bugs/ceilings, contract mismatches. No code snippets, no line numbers (they rot fastest).
+5. **INDEX.md lists ONLY hubs** (project/repo/module), never individual function notes - otherwise the index explodes.
+6. Findings that span the whole system (review verdicts, severity-ranked bug lists, cost analysis) go in ONE dated `concepts/` page linked from the hubs, not scattered across notes.
+7. The graph is a map, not the territory - re-read the repo when a note smells stale; update the module's notes when the module changes.
+
+Example: [[baantdee]] → [[baantdee-backend]] → [[payments]] → [[payments-create-charge]]; findings in [[baantdee-system-review-2026-07]].
 
 ## When to save
 
