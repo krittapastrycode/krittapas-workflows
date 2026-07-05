@@ -68,6 +68,11 @@ requireFrontmatter("skills/level-up/SKILL.md", ["name", "description"]);
 requireFrontmatter("skills/rate-it/SKILL.md", ["name", "description"]);
 requireFrontmatter("skills/fav-skills/SKILL.md", ["name", "description"]);
 
+// call-for-help companion plugin (agent-invocation wrapper skills)
+requireJson("call-for-help/.claude-plugin/plugin.json", ["name", "version", "description", "author"]);
+for (const s of ["everyone", "coder", "qa-reviewer", "orchestrator"])
+  requireFrontmatter(join("call-for-help", "skills", s, "SKILL.md"), ["name", "description"]);
+
 // Docs
 requireFile("README.md");
 requireFile("LICENSE");

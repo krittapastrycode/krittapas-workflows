@@ -29,6 +29,7 @@ Plus four skills:
 ```bash
 claude plugin marketplace add krittapastrycode/krittapas-workflows
 claude plugin install krittapas-workflows@krittapas-workflows
+claude plugin install call-for-help@krittapas-workflows
 ```
 
 **Restart the Claude Code session after install or update** — plugins register at session start, not mid-session.
@@ -46,7 +47,16 @@ claude plugin install krittapas-workflows@krittapas-workflows
 /krittapas-workflows:fav-skills remove <skill>
 ```
 
-**Agents** — not slash commands. Either ask for one by name ("use the orchestrator agent to plan and delegate: `<task>`"), or invoke via the Agent/Task tool with `subagent_type: krittapas-workflows:orchestrator` (also `:coder`, `:qa-reviewer`). Run `/agents` to confirm all three show up as available agent types once the plugin is loaded.
+**Agents** — triggered via the `call-for-help` companion plugin (thin wrapper skills that spawn them cold with a self-contained brief):
+
+```
+/call-for-help:everyone <task>       full loop: plan → code → fresh review → revise until APPROVE
+/call-for-help:coder <task>          implementation only, no review attached
+/call-for-help:qa-reviewer <target>  fresh-context review only (scrutinize + ponytail-review + criteria check)
+/call-for-help:orchestrator <ask>    plan / arbitrate findings / drive the revise loop on existing work
+```
+
+There is no bare `/call-for-help` — plugin commands are always `plugin:command`; `:everyone` is the call-the-whole-team form. Agents can also be invoked without the wrappers: ask by name ("use the orchestrator agent to…") or via the Agent/Task tool with `subagent_type: krittapas-workflows:orchestrator` (also `:coder`, `:qa-reviewer`). Run `/agents` to confirm all three registered.
 
 **Updating after a change:** bump `version` in `.claude-plugin/plugin.json`, push, then:
 

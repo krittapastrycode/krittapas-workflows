@@ -1,0 +1,9 @@
+{
+  "name": "call-for-help",
+  "version": "1.0.0",
+  "description": "Slash-command triggers for the krittapas-workflows agent team: call one role or the whole team.",
+  "author": {
+    "name": "Krittapas Polmanee",
+    "url": "https://github.com/krittapastrycode"
+  }
+}
