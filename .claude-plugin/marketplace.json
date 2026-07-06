@@ -8,7 +8,7 @@
     {
       "name": "krittapas-workflows",
       "source": "./",
-      "description": "Agent team (orchestrator / coder / qa-reviewer) with role-scoped skill loadouts, plus second-brain, level-up, rate-it, and fav-skills."
+      "description": "Agent team (orchestrator / coder / qa-reviewer) with role-scoped skill loadouts, plus second-brain, level-up, rate-it, fav-skills, and fable-imitate."
     },
     {
       "name": "call-for-help",

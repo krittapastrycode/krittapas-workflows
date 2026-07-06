@@ -1,7 +1,7 @@
 {
   "name": "krittapas-workflows",
-  "version": "1.6.0",
-  "description": "Personal agent team with curated skill loadouts: orchestrator plans and delegates, coder implements with Karpathy discipline and self-checks, qa-reviewer verifies in a fresh context. Skills are placed per role to avoid duplicate token spend.",
+  "version": "1.7.0",
+  "description": "Personal agent team with curated skill loadouts: orchestrator plans and delegates, coder implements with Karpathy discipline and self-checks, qa-reviewer verifies in a fresh context. Skills are placed per role to avoid duplicate token spend. Includes fable-imitate: Fable 5's reasoning discipline for Opus/Sonnet.",
   "author": {
     "name": "Krittapas Polmanee",
     "url": "https://github.com/krittapastrycode"
